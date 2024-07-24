@@ -16,7 +16,7 @@ void test_validate_my_username()
 {
     // Get username from conf file
     const char *myusr_func_result = "";
-    const char *username_conf_result = "";
+    char *username_conf_result = "";
 
     myusr_func_result = my_username();
     username_conf_result = malloc_username_from_conf_file();
