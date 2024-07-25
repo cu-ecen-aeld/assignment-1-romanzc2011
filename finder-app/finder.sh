@@ -1,10 +1,13 @@
 #!/bin/bash
 
+###################################################################### 
+# VARIABLES
 FILESDIR=$1
 SEARCHSTR=$2
 TOTAL_FILES=0
 TOTAL_GREPPED=0
 
+# Find all the files required and redirect errors away from ui
 FILES=$(find "$FILESDIR" -type f 2> /dev/null)
 
 if [ $# -ne 2 ]
