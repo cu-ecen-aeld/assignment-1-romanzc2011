@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ###################################################################### 
 # VARIABLES
@@ -25,13 +25,8 @@ fi
 
 #######################################################################
 # Loop through files, count total files and grepped files
-for FILE in $FILES
-do
-    ((TOTAL_FILES++))
-    if grep -q "$SEARCHSTR" "$FILE"
-    then
-        ((TOTAL_GREPPED++))
-    fi 
-done
+TOTAL_FILES=$(find "${FILESDIR}" -type f | wc -l)
+TOTAL_GREPPED=$(find "${FILESDIR}" -type f -exec grep -r "${SEARCHSTR}" {} \; | wc -l)
 
 printf "The number of files are %d and the number of matching lines are %d\n" "$TOTAL_FILES" "$TOTAL_GREPPED"
+
